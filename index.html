@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Carlos</title>
+    <link href="fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="CSS/animacao.css" rel="stylesheet">
+    <link href="css/novoestilo.css" rel="stylesheet">
+    <link href="css/novoresponsivo.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+     <!--    <span>Abreu & Silva <br>Eventos
+            <a href="#"onclick="window.location.reload()"><img src="touro.png"></a>
+             </span> -->
+        <input type="checkbox" id="checkbox" class="checkbox">
+        <label for="checkbox" class="label-menu">Menu<span class="hamburger"></span></label>
+        <ul class="menu">
+            <li class="menu1"><a href="#" onclick="window.location.reload()">Home</a></li>
+            <li class="menu1"><a href="#cardapio" onclick="hideMenu()">Cardápio</a></li>
+            <li class="menu2"><a href="#sobre" onclick="hideMenu()">Sobre nós</a></li>
+            <li class="menu2"><a href="#momentos" onclick="hideMenu()">Momentos Memoráveis</a></li>
+            <li class="menu2"><a href="#contato" onclick="hideMenu()">Contato</a></li>
+        </ul>
+    </nav>
+    <a href="https://api.whatsapp.com/send?phone=(41)997042551">
+        <div class="logowhats"></div>
+    </a>
+    <header>
+        <div class="topo">     
+        <h2>A nossa família servindo a sua! </h2>
+       <!--  <a href="#"onclick="window.location.reload()"> -->
+        <img src="logo.png">
+        <h3>Churrasco é a nossa especialidade 😉</h3>
+        <div class="chamada"><a href="#contato">Clique aqui e faça um orçamento...</a></div>
+        </div>
+     </header>
+    
+    <section id="cardapio">
+    
+        <h2 class="titulo">CARDÁPIOS</h2>
+        <div class="borda"></div>
+        <h3 class="subtitulo">Opções de Churrascos!</h3>
+            
+        <div class="carousel-container">
+            <div class="setas setas-esquerda" onclick="changeImage(-1)">&#10094;</div>
+               <div class="carousel">
+                <img src="img/OPCAO1.png" alt="Imagem 1">
+                <img src="img/OPCAO2.png" alt="Imagem 2">
+                <img src="img/OPCAO3.png" alt="Imagem 3">
+                <img src="img/SERVICOS.png" alt="Imagem 4">
+            </div>
+            <div class="setas setas-direita" onclick="changeImage(1)">&#10095;</div>
+        </div>   
+        <div class="carousel-controls">
+            <span class="carousel-control active" onclick="changeImage(0)"></span>
+            <span class="carousel-control" onclick="changeImage(1)"></span>
+            <span class="carousel-control" onclick="changeImage(2)"></span>
+            <span class="carousel-control" onclick="changeImage(3)"></span>
+        </div>
+            <script>
+
+            let currentImage = 0;
+            const container = document.querySelector('.carousel');
+            const images = document.querySelectorAll('.carousel img');
+            const controls = document.querySelectorAll('.carousel-control');
+    
+            function changeImage(offset) {
+    currentImage = (currentImage + offset + images.length) % images.length;
+    const translateX = -currentImage * 600;
+    container.style.transform = `translateX(${translateX}px)`;
+
+    // Atualizar os botões de controle
+    for (let i = 0; i < controls.length; i++) {
+        controls[i].classList.remove('active');
+    }
+    controls[currentImage].classList.add('active');
+}
+            
+            // Inicialmente, centralize o carrossel
+            changeImage(0);
+    
+            setInterval(() => changeImage(1), 9500); // Troca de imagem a cada 3 segundos
+            function hideMenu() {
+            document.getElementById("checkbox").checked = false;
+        }
+        </script>
+    </section>
+    <section id="sobre">
+        <h2 class="titulo">SOBRE NÓS</h2>
+        <div class="borda"></div>
+        <h3 class="subtitulo">Conheça um pouco mais sobre nós.</h3>
+     
+        <div class="card-container">
+            <img src="img/churrasco.jpg" alt="Imagem Churrasco" class="card-image">
+            <div class="card-content">
+              <p>Bem-vindo à nossa empresa, somos uma empresa familiar que transcende o conceito que vai alem de uma simples organização de eventos. Somos mais do que uma equipe; somos uma família dedicada a servir a sua família e proporcionar que seus momentos e eventos sejam recheados de boas lembranças que ficarão gravados para sempre na história de nossos clientes.</p>
+              <h4 id="titulo">Contrate-nos:</h4>
+              <p>Estamos ansiosos para fazer parte da sua próxima celebração e transformar seu churrasco em uma excelente experiência. Entre em contato conosco e descubra como podemos ajudar você a realizar seu evento.</p>
+              <h4 id="titulo">contate-nos através do whats:<h4 id="titulo">contate-nos através do whats:<a href="https://api.whatsapp.com/send?phone=(41)997042551" target="_blank">(41)997042551</a></h4>
+            </div>
+
+          </div>  
+    <section id="momentos">
+    
+            <h2 class="titulo">Momentos Memoráveis</h2>
+            <div class="borda"></div>
+            <h3 class="subtitulo">Alguns momentos memoráveis proporcionados!</h3>
+            
+            <div class="galeria">
+                <img class="galeria-imagem" src="img/galeria/foto1.jpeg" alt="Foto 1" onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto2.jpeg"  alt="Foto 2"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto3.jpeg"  alt="Foto 3"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto4.jpeg"  alt="Foto 4"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto5.jpeg"  alt="Foto 5"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto6.jpeg"  alt="Foto 6"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto7.jpeg"  alt="Foto 7"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto8.jpeg"  alt="Foto 8"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto9.jpeg"  alt="Foto 9"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto10.jpeg"  alt="Foto 10"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto11.jpeg" alt="Foto 11"onclick="ampliarImagem(this)">
+                <img class="galeria-imagem" src="img/galeria/foto12.jpeg" alt="Foto 12"onclick="ampliarImagem(this)">
+                <video class="galeria-imagem" controls>
+                    <source src="img/galeria/video1.mp4" type="video/mp4">
+                </video>
+                <video class="galeria-imagem" controls>
+                    <source src="img/galeria/video2.mp4" type="video/mp4">
+                </video>
+            
+            </div>
+            <script>
+                function ampliarImagem(imagem) {
+                    // Clona a imagem clicada
+                    var clone = imagem.cloneNode();
+                
+                    // Cria um contêiner para a imagem ampliada
+                    var overlay = document.createElement("div");
+                    overlay.classList.add("overlay");
+                    overlay.appendChild(clone);
+                
+                    // Adiciona o contêiner à página
+                    document.body.appendChild(overlay);
+                
+                    // Adiciona uma classe para animação
+                    setTimeout(function () {
+                        overlay.classList.add("open");
+                    }, 10);
+                
+                    // Remove a imagem ao clicar no contêiner ampliado
+                    overlay.onclick = function () {
+                        overlay.classList.remove("open");
+                
+                        // Aguarda a conclusão da animação antes de remover o contêiner
+                        setTimeout(function () {
+                            overlay.remove();
+                        }, 800);
+                    };
+                }
+                </script>
+            
+            `
+            
+        
+        </section>
+    <section id="contato">
+        <h2 class="titulo">FALE CONOSCO</h2>
+        <div class="borda"></div>
+        <h3 class="subtitulo">Preencha o formulário abaixo, que brevemente entraremos em contato.</h3>
+        <form name="cadastro" action="//process_form.php"method="POST" class="formulario">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            <span class="error" id="nomeError"></span>
+    
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Digite seu email">
+            <span class="error" id="emailError"></span>
+    
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" data-inputmask="'mask': '(99) 9999-9999'" data-mask-format="(99) 9999-9999">
+            <span class="error" id="telefoneError"></span>
+    
+            <label for="data">Data do Evento:</label>
+            <input type="date" id="data" name="data" >
+            <span class="error" id="dataError"></span>
+            <br>
+            <br>
+            <label for="qtde">Quantidade de pessoas:</label>
+            <input type="text" id="qtde" name="qtde" placeholder="Digite aqui a quantidade aproximada de pessoas do seu Evento" >
+            <span class="error" id="qtdeError"></span>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Caso tenha dúvidas, escreva suas perguntas e informações"></textarea>
+            <span class="error" id="mensagemError"></span>
+    
+            <input type="submit" value="Enviar" onclick="return validarFormulario()">
+        </form>
+    
+        <script type="text/javascript">
+            function validarFormulario() {
+                var nome = document.forms["cadastro"]["nome"].value;
+                var email = document.forms["cadastro"]["email"].value;
+                var telefone = document.forms["cadastro"]["telefone"].value;
+                var data = document.forms["cadastro"]["data"].value;
+                var qtde = document.forms["cadastro"]["qtde"].value;
+                var mensagem = document.forms["cadastro"]["mensagem"].value;
+    
+                var nomeError = document.getElementById("nomeError");
+                var emailError = document.getElementById("emailError");
+                var telefoneError = document.getElementById("telefoneError");
+                var dataError = document.getElementById("dataError");
+                var qtdeError = document.getElementById("qtdeError");
+                var mensagemError = document.getElementById("mensagemError");
+    
+                var valido = true;
+    
+                if (nome == "") {
+                    nomeError.innerHTML = "Por favor, digite seu nome";
+        valido = false;
+         } else {
+                    nomeError.innerHTML = "";
+                }
+    
+                if (email == "") {
+                    emailError.innerHTML = "Por favor, digite seu email";
+         valido = false;
+        } else {
+                    emailError.innerHTML = "";
+                }
+    
+                if (telefone == "") {
+                    telefoneError.innerHTML = "Por favor, digite seu telefone.";
+                    valido = false;
+                } else {
+                    telefoneError.innerHTML = "";
+                }
+   
+                if (data == "") {
+                    dataError.innerHTML = "Por favor, digite a data do seu evento.";
+                    valido = false;
+                } else {
+                    dataError.innerHTML = "";
+                }
+                if (qtde == "") {
+                    qtdeError.innerHTML = "Por favor, digite uma quantidade aproximada de pessoas para seu evento.";
+                    valido = false;
+                } else {
+                    qtdeError.innerHTML = "";
+                }
+                if (mensagem == "") {
+                    mensagemError.innerHTML = "Por favor, digite sua mensagem.";
+                    valido = false;
+                } else {
+                    mensagemError.innerHTML = "";
+                }
+                return valido;
+            }
+          
+      
+              $(document).ready(function() {
+                    $('[data-mask-format]').inputmask();
+                });
+           
+         </script>
+      
+    </section>
+   <footer>
+    <div class="social">
+        <h4 id="titulo">contate-nos através do whats:<br>
+            <a href="https://api.whatsapp.com/send?phone=(41)997042551" target="_blank"><br>(41)997042551<br>
+            <img class="whatsapp" src="img/whats.png" alt="Ícone do WhatsApp">
+        </a></h4>
+    
+    </div>
+    <div class="link">
+        <h4>Links</h4>
+            <a href="#" onclick="window.location.reload()">Home</a></li><br>
+            <a href="#cardapio" onclick="hideMenu()">Cardápio</a></li><br>
+            <a href="#sobre" onclick="hideMenu()">Sobre nós</a></li><br>
+            <a href="#momentos" onclick="hideMenu()">Momentos Memoráveis</a></li><br>
+            <a href="#contato" onclick="hideMenu()">Contato</a></li><br>
+    </div>
+ 
+    <div class="chama"><a href="#contato">Clique aqui e faça seu orçamento...</a></div>
+  
+    </div>
+   
+    
+</footer>
+</body>
+</html>
